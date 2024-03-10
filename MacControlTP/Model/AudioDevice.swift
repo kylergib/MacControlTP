@@ -17,7 +17,6 @@ public class AudioDevice {
     public var transportType: UInt32?
     public var volume: Float32?
 
-    
     public static var defaultDeviceOutputVolume: Float32 = 0
 
     public init(id: AudioDeviceID, name: CFString, deviceUID: CFString, hasVolume: Bool, transportType: UInt32? = nil, volume: Float32?) {
