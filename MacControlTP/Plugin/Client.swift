@@ -39,9 +39,11 @@ class TP {
             print(info.tpVersionCode)
             print(info.pluginVersion)
             print(info.status)
-            self.startMonitoringDefaultOutputVolume()
+//            self.startMonitoringDefaultOutputVolume()
+            AudioDevice.setupListener()
+            Connector.updateConnectorData(connectorId: "defaultOutputVolumeConnector", value: 100)
 //            Action.updateActionList(actionDataId: "testdata", value: ["dfas34","sadf","12"], actionId: "testid")
-            Notifications.myNoti(plugin: self.plugin)
+//            Notifications.myNoti(plugin: self.plugin)
         }
     }
 
