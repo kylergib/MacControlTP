@@ -1,0 +1,170 @@
+{
+  "id" : "com.maccontrol",
+  "plugin_start_cmd_mac" : "open %TP_PLUGIN_FOLDER%MacControl\/MacControlTP.app",
+  "name" : "Mac Control",
+  "version" : 1,
+  "settings" : [
+
+  ],
+  "categories" : [
+    {
+      "actions" : [
+        {
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate next media key"
+                  }
+                ],
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "name" : "Emulate next media key",
+          "type" : "communicate",
+          "data" : [
+
+          ],
+          "id" : "nextMediaKey"
+        },
+        {
+          "type" : "communicate",
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "suggestions" : {
+
+                },
+                "data" : [
+                  {
+                    "lineFormat" : "line 1"
+                  },
+                  {
+                    "lineFormat" : "Testing: {$testdata$}"
+                  }
+                ]
+              }
+            ]
+          },
+          "id" : "testid",
+          "data" : [
+            {
+              "type" : "choice",
+              "valueChoices" : [
+                "200",
+                "400",
+                "600",
+                "800"
+              ],
+              "id" : "testdata",
+              "default" : "200"
+            }
+          ],
+          "name" : "test"
+        },
+        {
+          "lines" : {
+            "action" : [
+              {
+                "suggestions" : {
+
+                },
+                "language" : "default",
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate previous media key"
+                  }
+                ]
+              }
+            ]
+          },
+          "name" : "Emulate previous media key",
+          "type" : "communicate",
+          "id" : "prevMediaKey",
+          "data" : [
+
+          ]
+        },
+        {
+          "type" : "communicate",
+          "lines" : {
+            "action" : [
+              {
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate play\/pause media key"
+                  }
+                ],
+                "language" : "default",
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "data" : [
+
+          ],
+          "id" : "playPauseKey",
+          "name" : "Emulate play\/pause media key"
+        },
+        {
+          "lines" : {
+            "action" : [
+              {
+                "data" : [
+                  {
+                    "lineFormat" : "Set volume of default output to: {$defaultOutputVolume$}"
+                  }
+                ],
+                "language" : "default",
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "data" : [
+            {
+              "id" : "defaultOutputVolume",
+              "default" : 0,
+              "type" : "number"
+            }
+          ],
+          "type" : "communicate",
+          "name" : "Set Default Output Volume",
+          "id" : "setDefaultOutputVolume"
+        }
+      ],
+      "id" : "volume",
+      "connectors" : [
+        {
+          "format" : "defaultOutputVolumeConnectorLabel",
+          "data" : [
+
+          ],
+          "id" : "defaultOutputVolumeConnector",
+          "name" : "Default Output Connector"
+        }
+      ],
+      "imagePath" : "",
+      "events" : [
+
+      ],
+      "name" : "Volume",
+      "states" : [
+
+      ]
+    }
+  ],
+  "api" : 7,
+  "configuration" : {
+    "parentCategory" : "misc"
+  }
+}

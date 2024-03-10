@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1530"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;BUILD_FOLDER=~/KamiCloud/Documents/Swift/MacControlTP/build&#10;&#10;# Define the destination folder where you want to copy the .app&#10;TPP_FOLDER=~/KamiCloud/Documents/Swift/MacControlTP/build/MacControl&#10;&#10;# Create the destination folder if it doesn&apos;t already exist&#10;mkdir -p &quot;$TPP_FOLDER&quot;&#10;&#10;# Remove the .app from the destination folder&#10;rm -rf &quot;$TPP_FOLDER/${PRODUCT_NAME}.app&quot;&#10;&#10;# Copy the .app to the destination folder&#10;cp -R &quot;${BUILD_DIR}/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/${PRODUCT_NAME}.app&quot; &quot;$TPP_FOLDER&quot;&#10;&#10;# Navigate to the destination directory&#10;cd &quot;$BUILD_FOLDER&quot;&#10;&#10;# Zip the entire folder&#10;zip -r &quot;${PRODUCT_NAME}.tpp&quot; MacControl&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "27694C582B9E278F0090545B"
+                     BuildableName = "MacControlTP.app"
+                     BlueprintName = "MacControlTP"
+                     ReferencedContainer = "container:MacControlTP.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "27694C582B9E278F0090545B"
+               BuildableName = "MacControlTP.app"
+               BlueprintName = "MacControlTP"
+               ReferencedContainer = "container:MacControlTP.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "27694C692B9E27900090545B"
+               BuildableName = "MacControlTPTests.xctest"
+               BlueprintName = "MacControlTPTests"
+               ReferencedContainer = "container:MacControlTP.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "27694C732B9E27900090545B"
+               BuildableName = "MacControlTPUITests.xctest"
+               BlueprintName = "MacControlTPUITests"
+               ReferencedContainer = "container:MacControlTP.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "27694C582B9E278F0090545B"
+            BuildableName = "MacControlTP.app"
+            BlueprintName = "MacControlTP"
+            ReferencedContainer = "container:MacControlTP.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "27694C582B9E278F0090545B"
+            BuildableName = "MacControlTP.app"
+            BlueprintName = "MacControlTP"
+            ReferencedContainer = "container:MacControlTP.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
