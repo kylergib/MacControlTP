@@ -6,31 +6,33 @@ on:
 
 permissions:
   contents: write
-
+  
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Copy file to release
-        run: |
-          mkdir -p ${{ github.workspace }}/release
-          cp build/MacControlTP.tpp ${{ github.workspace }}/release
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: Release ${{ steps.get_version.outputs.VERSION }}
-          draft: false
-          prerelease: false
-      - name: Upload file to release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/release/MacControlTP.tpp
-          asset_name: MacControlTP.tpp
-          asset_content_type: application/octet-stream
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Add steps as necessary to build your project here
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.get_version.outputs.VERSION }}
+        release_name: Release ${{ steps.get_version.outputs.VERSION }}
+        draft: false
+        prerelease: false
+
+    - name: Upload file to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/MacControlTP.tpp
+        asset_name: MacControlTP.tpp
+        asset_content_type: application/octet-stream
