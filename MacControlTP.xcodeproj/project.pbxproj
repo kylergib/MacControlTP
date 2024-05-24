@@ -14,7 +14,6 @@
 		27694C6F2B9E27900090545B /* MacControlTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C6E2B9E27900090545B /* MacControlTPTests.swift */; };
 		27694C792B9E27900090545B /* MacControlTPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C782B9E27900090545B /* MacControlTPUITests.swift */; };
 		27694C7B2B9E27900090545B /* MacControlTPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C7A2B9E27900090545B /* MacControlTPUITestsLaunchTests.swift */; };
-		27694C892B9E27C00090545B /* TPSwiftSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27694C882B9E27C00090545B /* TPSwiftSDK */; };
 		27694C8D2B9E2A830090545B /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C8C2B9E2A830090545B /* Actions.swift */; };
 		27694C8F2B9E2A970090545B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C8E2B9E2A970090545B /* Client.swift */; };
 		27694C912B9E2AA50090545B /* Connectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27694C902B9E2AA50090545B /* Connectors.swift */; };
@@ -34,6 +33,10 @@
 		27694CA92B9E2B290090545B /* TPSwiftSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27694C9C2B9E2B290090545B /* TPSwiftSDK */; };
 		27694CAB2B9E2B290090545B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27694C632B9E27900090545B /* Preview Assets.xcassets */; };
 		27694CAC2B9E2B290090545B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27694C602B9E27900090545B /* Assets.xcassets */; };
+		2770192D2BA0F0620019AAD8 /* TPSwiftSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2770192C2BA0F0620019AAD8 /* TPSwiftSDK */; };
+		277A8C6E2C010F4E005C53ED /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A8C6D2C010F4E005C53ED /* Timer.swift */; };
+		278BE19E2B9F939100D8471F /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BE19D2B9F939100D8471F /* States.swift */; };
+		278BE19F2B9F948B00D8471F /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BE19D2B9F939100D8471F /* States.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,8 @@
 		27694C972B9E2AE70090545B /* AudioDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDevice.swift; sourceTree = "<group>"; };
 		27694C992B9E2AF60090545B /* MediaKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeys.swift; sourceTree = "<group>"; };
 		27694CB02B9E2B290090545B /* MacControlTP entry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MacControlTP entry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		277A8C6D2C010F4E005C53ED /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		278BE19D2B9F939100D8471F /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27694C892B9E27C00090545B /* TPSwiftSDK in Frameworks */,
+				2770192D2BA0F0620019AAD8 /* TPSwiftSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,7 @@
 				27694C8E2B9E2A970090545B /* Client.swift */,
 				27694C902B9E2AA50090545B /* Connectors.swift */,
 				27694C922B9E2ABE0090545B /* Notifcations.swift */,
+				278BE19D2B9F939100D8471F /* States.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 				27694C952B9E2AD50090545B /* CoreAudioData.swift */,
 				27694C972B9E2AE70090545B /* AudioDevice.swift */,
 				27694C992B9E2AF60090545B /* MediaKeys.swift */,
+				277A8C6D2C010F4E005C53ED /* Timer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,7 +216,7 @@
 			);
 			name = MacControlTP;
 			packageProductDependencies = (
-				27694C882B9E27C00090545B /* TPSwiftSDK */,
+				2770192C2BA0F0620019AAD8 /* TPSwiftSDK */,
 			);
 			productName = MacControlTP;
 			productReference = 27694C592B9E278F0090545B /* MacControlTP.app */;
@@ -304,7 +311,7 @@
 			);
 			mainGroup = 27694C502B9E278F0090545B;
 			packageReferences = (
-				27694C872B9E27C00090545B /* XCRemoteSwiftPackageReference "swift-tp-sdk" */,
+				2770192B2BA0F0620019AAD8 /* XCRemoteSwiftPackageReference "swift-tp-sdk" */,
 			);
 			productRefGroup = 27694C5A2B9E278F0090545B /* Products */;
 			projectDirPath = "";
@@ -363,9 +370,11 @@
 				27694C5F2B9E278F0090545B /* ContentView.swift in Sources */,
 				27694C962B9E2AD50090545B /* CoreAudioData.swift in Sources */,
 				27694C8F2B9E2A970090545B /* Client.swift in Sources */,
+				278BE19E2B9F939100D8471F /* States.swift in Sources */,
 				27694C912B9E2AA50090545B /* Connectors.swift in Sources */,
 				27694C932B9E2ABE0090545B /* Notifcations.swift in Sources */,
 				27694C982B9E2AE70090545B /* AudioDevice.swift in Sources */,
+				277A8C6E2C010F4E005C53ED /* Timer.swift in Sources */,
 				27694C5D2B9E278F0090545B /* MacControlTPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +405,7 @@
 				27694CA12B9E2B290090545B /* ContentView.swift in Sources */,
 				27694CA22B9E2B290090545B /* CoreAudioData.swift in Sources */,
 				27694CA32B9E2B290090545B /* Client.swift in Sources */,
+				278BE19F2B9F948B00D8471F /* States.swift in Sources */,
 				27694CA42B9E2B290090545B /* Connectors.swift in Sources */,
 				27694CA52B9E2B290090545B /* Notifcations.swift in Sources */,
 				27694CA62B9E2B290090545B /* AudioDevice.swift in Sources */,
@@ -771,14 +781,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		27694C872B9E27C00090545B /* XCRemoteSwiftPackageReference "swift-tp-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kylergib/swift-tp-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		27694C9D2B9E2B290090545B /* XCRemoteSwiftPackageReference "swift-tp-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kylergib/swift-tp-sdk.git";
@@ -787,17 +789,25 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		2770192B2BA0F0620019AAD8 /* XCRemoteSwiftPackageReference "swift-tp-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kylergib/swift-tp-sdk";
+			requirement = {
+				branch = "sdk-1.0.1";
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		27694C882B9E27C00090545B /* TPSwiftSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27694C872B9E27C00090545B /* XCRemoteSwiftPackageReference "swift-tp-sdk" */;
-			productName = TPSwiftSDK;
-		};
 		27694C9C2B9E2B290090545B /* TPSwiftSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 27694C9D2B9E2B290090545B /* XCRemoteSwiftPackageReference "swift-tp-sdk" */;
+			productName = TPSwiftSDK;
+		};
+		2770192C2BA0F0620019AAD8 /* TPSwiftSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2770192B2BA0F0620019AAD8 /* XCRemoteSwiftPackageReference "swift-tp-sdk" */;
 			productName = TPSwiftSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

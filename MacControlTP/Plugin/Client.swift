@@ -7,87 +7,94 @@
 
 import AppKit
 import Foundation
+import LoggerSwift
 import TPSwiftSDK
 
 class TP {
-    
+    private var logger = Logger(current: TP.self)
     var client: TPClient
     var plugin: Plugin
+
     init() {
         client = TPClient()
-        plugin = Plugin(api: .v7, version: 001, name: "Mac Control", pluginId: "com.maccontrol")
+
+        plugin = Plugin(api: .v7, version: 100, name: "Mac Control", pluginId: "com.maccontrol")
         plugin.pluginStartCmdMac = "open %TP_PLUGIN_FOLDER%MacControl/MacControlTP.app" // TODO: change later
         plugin.configuration = Configuration(parentCategory: ParentCategory.misc)
 
         defineCategories()
         Actions.createActions(plugin: plugin)
-        print(plugin.connectors)
         Connectors.createConnectors(plugin: plugin)
-        
-        print(plugin.connectors)
+        States.addStates(plugin: plugin)
+
         client.plugin = plugin
-        print(plugin.connectors)
         setupOnInfo()
         setupOnClose()
         onConnection()
-    }
-
-    func setupOnInfo() {
-        client.onInfo = { info in
-            print(info.sdkVersion)
-            print(info.tpVersionString)
-            print(info.tpVersionCode)
-            print(info.pluginVersion)
-            print(info.status)
-//            self.startMonitoringDefaultOutputVolume()
-            AudioDevice.setupListener()
-            Connector.updateConnectorData(connectorId: "defaultOutputVolumeConnector", value: 100)
-//            Action.updateActionList(actionDataId: "testdata", value: ["dfas34","sadf","12"], actionId: "testid")
-//            Notifications.myNoti(plugin: self.plugin)
-        }
-    }
-
-    func setupOnClose() {
-        client.onCloseRequest = {
-            print("on close has been requested")
+        client.onTimeout = {
             DispatchQueue.main.async {
                 NSApplication.shared.terminate(nil)
             }
         }
     }
+
+    func setupOnInfo() {
+        client.onInfo = { _ in
+
+            self.createDevices()
+            AudioDevice.getDefaultOutputInit()
+            AudioDevice.getDefaultInputInit()
+            AudioDevice.setupOutputDeviceChangeListener(isOutput: true)
+            AudioDevice.setupOutputDeviceChangeListener(isOutput: false)
+//            AudioDevice.setupListener()
+//
+        }
+    }
+
+    func createDevices() {
+        var outputDeviceNames = [String]()
+        var inputDeviceNames = [String]()
+        let allDevices = AudioDevice.getAllDevices()
+        allDevices.forEach { id in
+            let device = AudioDevice.createDevice(id: id)
+
+            if device != nil {
+                let isOutput = AudioDevice.isOutput(id: id)
+                if isOutput {
+//                    print("\(device?.name) is output")
+                    outputDeviceNames.append("\(device!.name)")
+                    AudioDevice.outputDeviceNameToId["\(device!.name)"] = id
+                }
+                let isInput = AudioDevice.isInput(id: id)
+                if isInput {
+//                    print("\(device?.name) is input")
+                    inputDeviceNames.append("\(device!.name)")
+                    AudioDevice.inputDeviceNameToId["\(device!.name)"] = id
+                }
+            }
+        }
+
+        State.updateChoiceList(choiceListId: "outputDevices", value: outputDeviceNames)
+        State.updateChoiceList(choiceListId: "inputDevices", value: inputDeviceNames)
+    }
+
+    func setupOnClose() {
+        client.onCloseRequest = {
+            self.logger.info("on close has been requested")
+            DispatchQueue.main.async {
+                NSApplication.shared.terminate(nil)
+            }
+        }
+    }
+
     func onConnection() {
         client.onConnection = { isConnected in
-                print(isConnected ? "connected" : "not connected")
-            
+            self.logger.info(isConnected ? "connected" : "not connected")
         }
     }
 
     func defineCategories() {
-        let volumeCategory = Category(id: "volume", name: "Volume", imagePath: "")
-        plugin.addCategory(category: volumeCategory)
-    }
-
-    func startMonitoringDefaultOutputVolume() {
-//        print("startin  g 1")
-        DispatchQueue.global(qos: .background).async {
-//            print("Starting 2")
-            
-            // Create a timer in a background thread
-            let timer = Timer(timeInterval: 1.0, repeats: true) { _ in
-//                print("Starting 3")
-                let newVolume = AudioDevice.getVolume()
-                if newVolume != AudioDevice.defaultDeviceOutputVolume {
-                    AudioDevice.defaultDeviceOutputVolume = newVolume
-                    // Assuming self.client.updateConnectorData is thread-safe;
-                    // otherwise, consider dispatching it to an appropriate queue.
-//                    print(Int(newVolume*100))
-                    Connector.updateConnectorData(connectorId: "defaultOutputVolumeConnector", value: Int(newVolume*100))
-                }
-            }
-            
-            // Add the timer to the current RunLoop
-            RunLoop.current.add(timer, forMode: .common)
-            RunLoop.current.run() // Start the RunLoop
-        }
+        let category = Category(id: "MacControl", name: "MacControl", imagePath: "")
+        plugin.addCategory(category: category)
     }
 }
