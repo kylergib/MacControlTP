@@ -1,0 +1,242 @@
+{
+  "version" : 100,
+  "api" : 7,
+  "plugin_start_cmd_mac" : "sh %TP_PLUGIN_FOLDER%MacControl\/start_maccontroltp.sh",
+  "name" : "Mac Control",
+  "configuration" : {
+    "parentCategory" : "misc"
+  },
+  "settings" : [
+
+  ],
+  "categories" : [
+    {
+      "imagePath" : "",
+      "connectors" : [
+        {
+          "id" : "defaultInputVolumeConnector",
+          "name" : "Default Input Connector",
+          "data" : [
+
+          ],
+          "format" : "defaultInputVolumeConnectorLabel"
+        },
+        {
+          "id" : "defaultOutputVolumeConnector",
+          "format" : "defaultOutputVolumeConnectorLabel",
+          "data" : [
+
+          ],
+          "name" : "Default Output Connector"
+        }
+      ],
+      "states" : [
+        {
+          "desc" : "Volume of default output",
+          "valueChoices" : [
+
+          ],
+          "default" : "0",
+          "id" : "defaultOutputVolumeState",
+          "type" : "text"
+        },
+        {
+          "desc" : "Name of default output",
+          "id" : "defaultOutputNameState",
+          "valueChoices" : [
+
+          ],
+          "type" : "text",
+          "default" : ""
+        },
+        {
+          "id" : "defaultInputNameState",
+          "desc" : "Name of default input",
+          "valueChoices" : [
+
+          ],
+          "default" : "",
+          "type" : "text"
+        },
+        {
+          "type" : "text",
+          "desc" : "Volume of default input",
+          "id" : "defaultInputVolumeState",
+          "default" : "0",
+          "valueChoices" : [
+
+          ]
+        }
+      ],
+      "id" : "MacControl",
+      "actions" : [
+        {
+          "name" : "Set Input device",
+          "lines" : {
+            "action" : [
+              {
+                "data" : [
+                  {
+                    "lineFormat" : "Set input device: {$inputDevices$}"
+                  }
+                ],
+                "suggestions" : {
+
+                },
+                "language" : "default"
+              }
+            ]
+          },
+          "id" : "setInputDevice",
+          "hasHoldFunctionality" : true,
+          "data" : [
+            {
+              "type" : "choice",
+              "id" : "inputDevices",
+              "default" : "",
+              "valueChoices" : [
+
+              ]
+            }
+          ],
+          "type" : "communicate"
+        },
+        {
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "suggestions" : {
+
+                },
+                "data" : [
+                  {
+                    "lineFormat" : "line 1"
+                  },
+                  {
+                    "lineFormat" : "Set output device: {$outputDevices$}"
+                  }
+                ]
+              }
+            ]
+          },
+          "hasHoldFunctionality" : true,
+          "name" : "Set Output device",
+          "data" : [
+            {
+              "default" : "",
+              "valueChoices" : [
+
+              ],
+              "type" : "choice",
+              "id" : "outputDevices"
+            }
+          ],
+          "id" : "setOutputDevice",
+          "type" : "communicate"
+        },
+        {
+          "type" : "communicate",
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate play\/pause media key"
+                  }
+                ],
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "data" : [
+
+          ],
+          "name" : "Emulate play\/pause media key",
+          "id" : "playPauseKey"
+        },
+        {
+          "data" : [
+
+          ],
+          "id" : "prevMediaKey",
+          "type" : "communicate",
+          "name" : "Emulate previous media key",
+          "lines" : {
+            "action" : [
+              {
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate previous media key"
+                  }
+                ],
+                "language" : "default",
+                "suggestions" : {
+
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name" : "Emulate next media key",
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "data" : [
+                  {
+                    "lineFormat" : "Emulate next media key"
+                  }
+                ],
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "id" : "nextMediaKey",
+          "data" : [
+
+          ],
+          "type" : "communicate"
+        },
+        {
+          "name" : "Set Default Output Volume",
+          "lines" : {
+            "action" : [
+              {
+                "language" : "default",
+                "data" : [
+                  {
+                    "lineFormat" : "Set volume of default output to: {$defaultOutputVolume$}"
+                  }
+                ],
+                "suggestions" : {
+
+                }
+              }
+            ]
+          },
+          "id" : "setDefaultOutputVolume",
+          "type" : "communicate",
+          "data" : [
+            {
+              "id" : "defaultOutputVolume",
+              "type" : "number",
+              "default" : 0
+            }
+          ]
+        }
+      ],
+      "name" : "MacControl",
+      "events" : [
+
+      ]
+    }
+  ],
+  "id" : "com.maccontrol"
+}

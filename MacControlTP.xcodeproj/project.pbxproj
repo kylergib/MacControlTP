@@ -35,6 +35,7 @@
 		27694CAC2B9E2B290090545B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27694C602B9E27900090545B /* Assets.xcassets */; };
 		2770192D2BA0F0620019AAD8 /* TPSwiftSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2770192C2BA0F0620019AAD8 /* TPSwiftSDK */; };
 		277A8C6E2C010F4E005C53ED /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A8C6D2C010F4E005C53ED /* Timer.swift */; };
+		277A8C6F2C01164E005C53ED /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A8C6D2C010F4E005C53ED /* Timer.swift */; };
 		278BE19E2B9F939100D8471F /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BE19D2B9F939100D8471F /* States.swift */; };
 		278BE19F2B9F948B00D8471F /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BE19D2B9F939100D8471F /* States.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		27694CB02B9E2B290090545B /* MacControlTP entry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MacControlTP entry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		277A8C6D2C010F4E005C53ED /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		278BE19D2B9F939100D8471F /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
+		27EC4AD12C410E3E00C38BF8 /* start_maccontroltp.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_maccontroltp.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		27694C502B9E278F0090545B = {
 			isa = PBXGroup;
 			children = (
+				27EC4AD12C410E3E00C38BF8 /* start_maccontroltp.sh */,
 				27694C8A2B9E29FD0090545B /* .gitignore */,
 				27694C5B2B9E278F0090545B /* MacControlTP */,
 				27694C6D2B9E27900090545B /* MacControlTPTests */,
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277A8C6F2C01164E005C53ED /* Timer.swift in Sources */,
 				27694C9F2B9E2B290090545B /* MediaKeys.swift in Sources */,
 				27694CA02B9E2B290090545B /* Actions.swift in Sources */,
 				27694CA12B9E2B290090545B /* ContentView.swift in Sources */,
@@ -481,6 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -539,6 +544,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

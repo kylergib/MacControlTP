@@ -19,7 +19,7 @@ class TP {
         client = TPClient()
 
         plugin = Plugin(api: .v7, version: 100, name: "Mac Control", pluginId: "com.maccontrol")
-        plugin.pluginStartCmdMac = "open %TP_PLUGIN_FOLDER%MacControl/MacControlTP.app" // TODO: change later
+        plugin.pluginStartCmdMac = "sh %TP_PLUGIN_FOLDER%MacControl/start_maccontroltp.sh"
         plugin.configuration = Configuration(parentCategory: ParentCategory.misc)
 
         defineCategories()

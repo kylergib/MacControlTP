@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         tp = TP()
         
         #if ENTRY
-        let path = "~/Documents/TouchPortal/plugins/MacControl"
+        let path = "~/KamiCloud/Documents/Swift/MacControlTP/"
         let expandedPath = NSString(string: path).expandingTildeInPath
         let url = URL(fileURLWithPath: expandedPath)
         tp?.client.plugin?.buildEntry(folderURL: url, fileName: "entry.tp")
